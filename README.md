@@ -1,2 +1,9 @@
 # script-reboot-xiaomi-mini-router
-Reboot your xiaomi mini router from remote script running on your server/desktop
+Reboot your Xiaomi Mini router (and may be others Xiaomi based on OpenWRT/LUCI) using remote PHP script running on your server/desktop.
+
+Usage:
+```
+php reboot_router_xiaomi_mini.php
+```
+
+Works well under PHP 5 and 7.
