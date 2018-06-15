@@ -1,11 +1,11 @@
 <?php
-$pwd   = "my_xiaomi_mini_admin_password";				// Change to yours xiaomi mini admin password
-$key   = "a2ffa5c9be07488bbb04a3a47d3c5f6a";			// Get this key: go to router login page - view source - on http://192.168.31.1
+$pwd   = "my_xiaomi_mini_admin_password";	  // Change to yours xiaomi mini admin password
+$key   = "a2ffa5c9be07488bbb04a3a47d3c5f6a";	  // Get this key: go to router login page - view source - on http://192.168.31.1
 $mt    = ceil( microtime( TRUE ) );
-$nonce = "0_ab:3d:cd:02:ef:84_" . $mt . "_8615";		// ab:3d:...:84 - mac-address of computer where this script running - change it to yours
+$nonce = "0_ab:3d:cd:02:ef:84_" . $mt . "_8615";  // ab:3d:...:84 MAC-address of computer where this script running - change it to yours
 $pass  = sha1( $nonce . sha1( $pwd . $key ) );
 
-// mine router at 192.168.31.1 - change it to yours everywhere
+// mine router at 192.168.31.1 - change it to yours everywhere in file (Ctrl+R)
 
 $query = "POST http://192.168.31.1/cgi-bin/luci/api/xqsystem/login HTTP/1.1
 Host: 192.168.31.1
@@ -52,7 +52,7 @@ echo "[" . date( "r" ) . "] Token: " . $token . "\r\n";
 // wait while openwrt works with new issued token
 sleep( 3 );
 
-$query = "GET http://192.168.31.1/cgi-bin/luci/;stok=$token/api/xqsystem/reboot?client=web HTTP/1.1
+$query = "GET http://192.168.31.1/cgi-bin/luci/;stok={$token}/api/xqsystem/reboot?client=web HTTP/1.1
 Host: 192.168.31.1
 Connection: keep-alive
 Accept: application/json, text/javascript, */*; q=0.01
