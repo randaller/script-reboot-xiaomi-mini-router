@@ -58,7 +58,7 @@ Connection: keep-alive
 Accept: application/json, text/javascript, */*; q=0.01
 X-Requested-With: XMLHttpRequest
 User-Agent: Mozilla/5.0 (Windows NT 6.2; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36
-Referer: http://192.168.31.1/cgi-bin/luci/;stok=$token/web/home
+Referer: http://192.168.31.1/cgi-bin/luci/;stok={$token}/web/home
 Accept-Encoding: gzip, deflate
 Accept-Language: en-US,en;q=0.9,ru;q=0.8
 Cookie: psp=admin|||2|||0\r\n\r\n";
