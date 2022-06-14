@@ -1,0 +1,37 @@
+name: "Run DAST scan"
+description: "scan runner"
+author: "company@gmail.com"
+
+branding:
+  icon: "mic"
+  color: "blue"
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+    
+inputs:
+  iwkey:
+    description: "secret key"
+    required: true
+    default: ${{ secrets.IWKEY }}
+  repository:
+    description: "github repository"
+    required: false
+    default: ${{ github.repository }}
+  token:
+    description: "github token"
+    required: false
+    default: ${{ secrets.GITHUB_TOKEN }}
+
+runs:
+  using: docker
+  image: dockerfile
+  # args:
+  #   - ${{ inputs.iwkey }}
+  env:
+    APIKEY: ${{ inputs.iwkey }}
+    REPOSITORY: ${{ inputs.repository }}
+    TOKEN: ${{ inputs.token }}
