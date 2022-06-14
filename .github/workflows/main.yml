@@ -26,12 +26,13 @@ inputs:
     required: false
     default: ${{ secrets.GITHUB_TOKEN }}
 
-runs:
-  using: docker
-  image: dockerfile
-  # args:
-  #   - ${{ inputs.iwkey }}
-  env:
-    APIKEY: ${{ inputs.iwkey }}
-    REPOSITORY: ${{ inputs.repository }}
-    TOKEN: ${{ inputs.token }}
+jobs:
+  runs:
+    using: docker
+    image: dockerfile
+    # args:
+    #   - ${{ inputs.iwkey }}
+    env:
+      APIKEY: ${{ inputs.iwkey }}
+      REPOSITORY: ${{ inputs.repository }}
+      TOKEN: ${{ inputs.token }}
